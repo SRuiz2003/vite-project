@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import {CategoryList}  from './components/CategoryList'
-import {GifGrid} from './components/GifGrid'
+//import {GifGrid} from './components/GifGrid'
 import { SecToHr } from './components/SecToHr'
-
+import {Counter} from './components/Counter'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SecToHr/>
-    <GifGrid/>
+    <Counter/>
     <CategoryList/>
     <App />
   </React.StrictMode>,
