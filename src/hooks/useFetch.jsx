@@ -1,24 +1,30 @@
 import { useState,useEffect } from 'react';
 
-export const useFetch = async ( url ) => {
-    const [link, setLink] = useState({
+export const useFetch =  ( url ) => {
+    const [state, setState] = useState({
         data: null,
         isLoading: true,
         hasError: null
     })
     
-    const change = () => {
-        setLink(url + 'Changed')
-    }
+    const getFetch = async () => {
 
     const resp = await fetch(url)
-    const {data} = await resp.json()
+    const data = await resp.json()
     
+        setState({
+            data,
+            isLoading: false,
+            hasError: null
+        })
+
+    }
+
+    useEffect(() => {
+        getFetch()
+    },[url])
+
     return {
-            
-        data,
-        isLoading: true,
-        hasError: null
-    
+        ...state    
     }
 }

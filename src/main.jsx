@@ -4,14 +4,15 @@ import App from './App'
 import './index.css'
 import {CategoryList}  from './components/CategoryList'
 //import {GifGrid} from './components/GifGrid'
-import { SecToHr } from './components/SecToHr'
+//import { SecToHr } from './components/SecToHr'
 import {Counter} from './components/Counter'
+import {BreakingBad} from "./components/BrakingBad"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <SecToHr/>
     <Counter/>
     <CategoryList/>
     <App />
+    <BreakingBad/>
   </React.StrictMode>,
 )
 
