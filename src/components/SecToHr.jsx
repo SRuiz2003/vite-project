@@ -1,22 +1,27 @@
 import { useState } from 'react';
 
-function Tiempo({ segundos }) {
+function Tiempo({ value }) {
+    console.log(value)
+    const segundos = parseFloat(value)
     const horas = Math.floor(segundos / 3600);
     const minutos = Math.floor((segundos % 3600) / 60);
     const seg = segundos % 60;
-    
-    if(segundos>60){
-        return `Tiempo total =  ${seg} segundos`;
+    let res = ""
+    console.log(horas)
+    console.log(minutos)
+    console.log(seg)
+    if(segundos<60){
+        res =`Tiempo total =  ${seg} segundos`;
     }
     else
         {if(segundos<3600){
-            return `Tiempo total = ${minutos} minutos y ${seg} segundos`; 
+            res = `Tiempo total = ${minutos} minutos y ${seg} segundos`; 
         }   
         else{
-            return `Tiempo total = ${horas} horas, ${minutos} minutos y ${seg} segundos`;
+            res = `Tiempo total = ${horas} horas, ${minutos} minutos y ${seg} segundos`;
             }
         }
-    
+    return res
 }
 
 export const SecToHr = () =>{
@@ -30,9 +35,10 @@ export const SecToHr = () =>{
     } 
 
     return(<>
-                <input type = 'text' value={Evt} onChange={(event) => onSetEvt(event)} style={{textAlign:"center"}} ></input><br/>
-                <button onClick={() => {console.log({Evt}),onSetAns(Tiempo(parseInt(Evt)))}} style={{position:"relative", top:"50px"}}> transformar segundos</button> 
-                <p>{ans}</p>
-
+                <div>
+                <input type = 'text' value={Evt} onChange={(event) => onSetEvt(event)}  ></input><br/>
+                <button onClick={() => {console.log({Evt}),console.log(Tiempo(parseInt(Evt)))}} > transformar segundos</button> 
+                <p>{Evt}</p>
+                </div>
             </>)
 }

@@ -2,7 +2,11 @@ import { useFetch } from "../hooks/useFetch";
 import useCounter  from "../hooks/useCounter";
     export const  BreakingBad =  () => {
         const {Increment,counter} = useCounter(0)
-        let url = `https://api.breakingbadquotes.xyz/v1/quotes/${counter + 1}` 
+        let url = ""
+        if(counter != 0){
+        url = `https://api.breakingbadquotes.xyz/v1/quotes/${counter}` 
+        }else{ url = `https://api.breakingbadquotes.xyz/v1/quotes/1`}
+        
         let obj =  useFetch(url)
         console.log(counter)
         let res = obj.data?.[0] ??  "Loading..." 
